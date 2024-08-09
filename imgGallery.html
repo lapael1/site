@@ -26,16 +26,6 @@
         top: 2px;
         left: 2px;
       }
-      .dark {
-        border: 0;
-        background: rgba(150, 150, 150, 0.6);
-        text-shadow: 1px 1px 1px white;
-        border: 1px solid #999;
-        position: absolute;
-        cursor: pointer;
-        top: 2px;
-        left: 2px;
-      }
       .thumb-bar {
         display: flex;
       }
@@ -54,7 +44,7 @@
   </head>
   <body>
     <div class="full-img">
-      <img src="images/image/pic1.jpg" alt="이미지" class="display-img" />
+      <img src="images/imgGallery/pic1.jpg" alt="이미지" class="display-img" />
       <div class="overlay">
         <!-- js출력 -->
       </div>
@@ -78,13 +68,13 @@
         "pic5.jpg": "Large moth on a leaf",
       };
       //   images.forEach(function(){})
+      //   이미지 변경
       images.forEach((image) => {
-        // .console.log(image);
+        console.log(image);
         const newImage = document.createElement("img");
-        newImage.setAttribute("src", `images/image/${image}`);
+        newImage.setAttribute("src", `images/imgGallery/${image}`);
         newImage.setAttribute("alt", `${alts[image]}`);
-        //   console.log(newImage);
-
+        // console.log(newImage);
         thumbBar.appendChild(newImage);
         newImage.addEventListener("click", function (e) {
           displayImg.src = e.target.src;
@@ -99,10 +89,11 @@
           // console.log(btn);
           btn.textContent = "lighten";
           overlay.style.backgroundColor = "rgba(0,0,0,0.5)";
-        } else {
-          btn.setAttribute("class", "dark");
+        }else{
+            btn.setAttribute("class", "dark");
+          // console.log(btn);
           btn.textContent = "darken";
-          overlay.style.backgroundColor = "rgba(0,0,0,0.0)";
+          overlay.style.backgroundColor = "rgba(0,0,0,0)";  
         }
       });
     </script>
